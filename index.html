@@ -12,15 +12,27 @@
     <script type="text/javascript" src="./app.js"></script>
 </head>
 <body>
-    <div id="search-pane">
-        <label for="word">Word: </label>
-        <input type="text" name="word" id="input-search-term"/>
-        <button type="button" id="search-button" onclick="main()">Search</button>
-        
+    <div id="wrapper">
+        <div id="search-pane">
+            <label for="word">Word: </label>
+            <input type="text" name="word" id="input-search-term"/>
+            <button type="button" id="search-button" onclick="main()">Search</button>
+        </div>
+        <p id="error-message"></p>
     </div>
+
     <div id="search-result">
         <div><p>Word: <p id="word"></p></p></div>
-        <div><p>Phonetic: <p id="phonetic"></p></p></div>
+        <div><p>Phonetic: <p id="phonetic"></p>|</p>
+            <audio id="myAudio" src="#"></audio>
+            <div cursor="pointer"><img src="https://www.freeiconspng.com/uploads/sound-png-icon-0.png" height="42" width="42" onclick="playSound()" cursor="pointer"></div></div>
+        <div>
+            <p>Origin: <p id="origin"></p></p>
+        </div>
+    </div>
+    <div id="meanings">
+        <p>Meanings:</p>
+        <ol id="meanings-list"></ol>
     </div>
 </body>
 </html>
