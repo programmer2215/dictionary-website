@@ -11,7 +11,13 @@ async function main() {
     let pronun_audio = 'https:' + data[0].phonetics[0].audio
     document.getElementById('myAudio').src = pronun_audio
     document.getElementById('origin').innerText = data[0].origin
+    
+    let list_element = document.getElementById('meanings-list')
 
+    // reset list contents
+    while (list_element.firstChild) {
+        list_element.removeChild(list_element.lastChild);
+      }
 
     for (i=0; i<data[0].meanings.length; i++) {
         for (j=0; j<data[0].meanings[i].definitions.length; j++) {
@@ -19,8 +25,8 @@ async function main() {
         
         meaning.innerText = data[0].meanings[i].definitions[j].definition;
 
-        document.getElementById('meanings-list').appendChild(meaning)
-        document.getElementById('meanings-list').appendChild(document.createElement('hr'))
+        list_element.appendChild(meaning)
+        list_element.appendChild(document.createElement('hr'))
         }
     }
     }catch(e){
