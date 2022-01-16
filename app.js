@@ -5,7 +5,8 @@ async function main() {
     let word = document.getElementById('input-search-term').value
     let response = await fetch(BASE_URL + word)
     let data = await response.json()
-    
+    document.getElementById('error-message').innerText = ""
+
     document.getElementById('word').innerText = data[0].word
     document.getElementById('phonetic').innerText = data[0].phonetics[0].text
     let pronun_audio = 'https:' + data[0].phonetics[0].audio
@@ -30,8 +31,17 @@ async function main() {
         }
     }
     }catch(e){
-        location.reload()
-        document.getElementById('error-message').innerText = "Couldn't find a definition :("
+        document.getElementById('error-message').innerText = "Definition not Found :("
+        document.getElementById('word').innerText = "";
+        document.getElementById('phonetic').innerText = "";
+        document.getElementById('myAudio').src = "";
+        document.getElementById('origin').innerText = "";
+        let parent = document.querySelector("ol");
+        let child = parent.lastElementChild;  
+        while (child) { 
+            parent.removeChild(child); 
+            child = parent.lastElementChild; 
+        } 
     }
     
 }

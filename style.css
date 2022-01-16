@@ -13,7 +13,7 @@ div{
     color: #171f2e;
     background-color: #fcba03;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 130%;
     font-weight: bold;
     align-items: center;
     border-radius: 3px;
@@ -22,8 +22,10 @@ div{
 
 }
 #search-pane{
-    height: 10vh;
-    width: 50%;
+    height: 'fit-content';
+    width: 'fit-content';
+    padding: 1%;
+    justify-content: center;
 }
 #wrapper{
     display: flex;
@@ -31,7 +33,7 @@ div{
     width: 50%;
 }
 label{
-    font-size: 0.6em;
+    font-size: 1.6rem;
     font-weight: 600;
 }
 
@@ -58,6 +60,15 @@ button {
     color: #171f2e;
  
   }
+
+#input-search-term{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.3rem;
+
+}
+
 #search-result{
     display: flex;
     flex-direction: column;
@@ -77,6 +88,8 @@ button {
 #meanings{
     display: flex;
     flex-direction: column;
+    font-size: 1.6rem;
+    font-weight: 600;
     width: 50%;
     align-items: flex-start;
     justify-content: flex-start;
