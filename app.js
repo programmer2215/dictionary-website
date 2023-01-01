@@ -9,7 +9,8 @@ async function main() {
 
     document.getElementById('word').innerText = data[0].word
     document.getElementById('phonetic').innerText = data[0].phonetics[0].text
-    let pronun_audio = 'https:' + data[0].phonetics[0].audio
+    let pronun_audio = data[0].phonetics[0].audio
+    console.log(pronun_audio);
     document.getElementById('myAudio').src = pronun_audio
     document.getElementById('origin').innerText = data[0].origin
     
@@ -49,5 +50,8 @@ async function main() {
 
 
 function playSound() {
-    document.getElementById('myAudio').play()
+    let playobj = document.getElementById('myAudio').play();
+    if (playobj !== undefined){
+        playobj.then(function() {});
+    }
 }
